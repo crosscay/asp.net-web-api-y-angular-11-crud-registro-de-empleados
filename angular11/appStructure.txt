@@ -1,0 +1,18 @@
+● src
++---● app
+|   +--● emmployees
+|   |  |--emmployees.component.ts|.html|.css
+|   |  +--● emmployee
+|   |  |  |--emmployee.component.ts|.html|.css
+|   |  |
+|   |  +--● emmployee-list
+|   |  |  |--payment-detail-list.component.ts|.html|.css
+|   |  |
+|   |  +--● service
+|   |     |--employee.service.ts
+       +--● models
+|   |     |--employee.model.ts
+|   |
+|   |--app.module.ts
+|
+|--index.html (cdn path for bootstrap & fa icons)

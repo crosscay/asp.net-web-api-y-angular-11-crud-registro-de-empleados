@@ -92,8 +92,10 @@ C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-
 C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-registro-de-empleados\WebAPI\WebAPI\bin\es\System.Web.WebPages.resources.dll
 C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-registro-de-empleados\WebAPI\WebAPI\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-registro-de-empleados\WebAPI\WebAPI\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-registro-de-empleados\WebAPI\WebAPI\obj\Debug\WebAPI.csprojAssemblyReference.cache
 C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-registro-de-empleados\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.CoreCompileInputs.cache
 C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-registro-de-empleados\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.CopyComplete
 C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-registro-de-empleados\WebAPI\WebAPI\obj\Debug\WebAPI.dll
 C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-registro-de-empleados\WebAPI\WebAPI\obj\Debug\WebAPI.pdb
+C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-registro-de-empleados\WebAPI\WebAPI\bin\System.Web.Cors.dll
+C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-registro-de-empleados\WebAPI\WebAPI\bin\System.Web.Http.Cors.dll
+C:\Users\across18\Documents\Proyectos Angular\asp.net-web-api-y-angular-11-crud-registro-de-empleados\WebAPI\WebAPI\bin\System.Web.Http.Cors.xml

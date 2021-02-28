@@ -1,1 +1,25 @@
-<p>employee works!</p>
+<form  [formGroup]="form" (ngSubmit)="onSubmit(form)">
+  <input type="hidden" name="EmployeeID">
+  <div class="form-group">
+    <label>NOMBRE COMPLETO</label>
+    <input name="FullName" class="form-control" formControlName="fullName" required>
+    <!-- <div class="validation-error" *ngIf="FullName.invalid && FullName.touched">This field is required.</div> -->
+  </div>
+  <div class="form-group">
+    <label>POSICIÓN</label>
+    <input name="Position" formControlName="position" class="form-control">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>CODIGO EMPLEADO</label>
+      <input name="EMPCode" formControlName="empCode" class="form-control">
+    </div>
+    <div class="form-group  col-md-6">
+      <label>MÓVIL</label>
+      <input name="Mobile" formControlName="mobile" class="form-control">
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+  </div>
+</form>

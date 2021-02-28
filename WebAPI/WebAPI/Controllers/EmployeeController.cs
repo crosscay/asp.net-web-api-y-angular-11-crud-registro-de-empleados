@@ -22,27 +22,10 @@ namespace WebAPI.Controllers
             return db.Employees;
         }
 
-        // GET: api/Employee/5
-        [ResponseType(typeof(Employee))]
-        public IHttpActionResult GetEmployee(int id)
-        {
-            Employee employee = db.Employees.Find(id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(employee);
-        }
-
         // PUT: api/Employee/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutEmployee(int id, Employee employee)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
             if (id != employee.EmployeeID)
             {
@@ -74,10 +57,6 @@ namespace WebAPI.Controllers
         [ResponseType(typeof(Employee))]
         public IHttpActionResult PostEmployee(Employee employee)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
             db.Employees.Add(employee);
             db.SaveChanges();

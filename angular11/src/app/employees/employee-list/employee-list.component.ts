@@ -37,5 +37,4 @@ export class EmployeeListComponent implements OnInit {
   editEmployee(emp: Employee) {
     this.serviceEmployee.update(emp);
   }
-
 }

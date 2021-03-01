@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-
+  employee: Employee;
   constructor(public serviceEmployee: EmployeeService,
     private toastr: ToastrService) { }
 
@@ -22,6 +22,14 @@ export class EmployeeListComponent implements OnInit {
       this.serviceEmployee.deleteEmployee(id).subscribe(data => {
         this.toastr.warning('Registro eliminado', 'El empleado fue eliminado');
         this.serviceEmployee.refreshList();
+        const employee = {
+          EmployeeID: 0,
+          FullName: '',
+          EMPCode: '',
+          Mobile: '',
+          Position: ''
+        }
+        this.serviceEmployee.update(employee);
       });
     }
   }

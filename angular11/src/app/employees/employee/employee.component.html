@@ -1,25 +1,57 @@
 <form  [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label>NOMBRE COMPLETO</label>
-    <input name="fullName" class="form-control" formControlName="fullName" required>
-    <div class="validation-error"
-    *ngIf="form.get('fullName')?.hasError('required') && form.get('fullName')?.touched">Este campo es requerido.</div>
-  </div>
-  <div class="form-group">
-    <label>POSICIÓN</label>
-    <input name="position" formControlName="position" class="form-control">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label>CODIGO EMPLEADO</label>
-      <input name="EMPCode" formControlName="empCode" class="form-control">
-    </div>
-    <div class="form-group  col-md-6">
-      <label>MÓVIL</label>
-      <input name="Mobile" formControlName="mobile" class="form-control">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="this.form.get('fullName').valid"
+                [class.red-icon]="this.form.get('fullName').invalid && this.form.get('fullName').touched"></i>
+        </div>
+      </div>
+      <input type="text" class="form-control" formControlName="fullName" placeholder="Nombre Completo">
+      <div class="validation-error"
+          *ngIf="form.get('fullName')?.hasError('required') && form.get('fullName')?.touched">Este campo es requerido.</div>
     </div>
   </div>
   <div class="form-group">
-    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="this.form.get('position').valid"
+                [class.red-icon]="this.form.get('position').invalid && this.form.get('position').touched"></i>
+        </div>
+      </div>
+      <input type="text" class="form-control" formControlName="position" placeholder="Cargo">
+      <div class="validation-error"
+          *ngIf="form.get('position')?.hasError('required') && form.get('position')?.touched">Este campo es requerido.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="this.form.get('empCode').valid"
+                [class.red-icon]="this.form.get('empCode').invalid && this.form.get('empCode').touched"></i>
+        </div>
+      </div>
+      <input type="text" class="form-control" formControlName="empCode" placeholder="Codigo empleado">
+      <div class="validation-error"
+          *ngIf="form.get('empCode')?.hasError('required') && form.get('empCode')?.touched">Este campo es requerido.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="this.form.get('mobile').valid"
+                [class.red-icon]="this.form.get('mobile').invalid && this.form.get('mobile').touched"></i>
+        </div>
+      </div>
+      <input type="text" class="form-control" formControlName="mobile" placeholder="Móvil">
+      <div class="validation-error"
+          *ngIf="form.get('mobile')?.hasError('required') && form.get('mobile')?.touched">Este campo es requerido.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" [disabled]="form.invalid" type="submit"><i class="fas fa-database"></i> Aceptar</button>
   </div>
 </form>

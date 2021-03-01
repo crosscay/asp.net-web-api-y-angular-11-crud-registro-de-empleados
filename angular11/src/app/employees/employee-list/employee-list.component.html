@@ -1,1 +1,9 @@
-<p>employee-list works!</p>
+<table class="table table-hover">
+  <tr *ngFor="let emp of serviceEmployee.list">
+    <td (click)="editEmployee(emp)">[{{emp.EMPCode}}] - {{emp.FullName}}</td>
+    <td (click)="editEmployee(emp)">{{emp.Position}}</td>
+    <td (click)="editEmployee(emp)">{{emp.Mobile}}</td>
+    <td><i class="far fa-edit fa-lg text-info" style="cursor: pointer;" (click)="editEmployee(emp)"></i></td>
+    <td><i class="far fa-trash-alt fa-lg text-danger" (click)="deleteEmployee(emp.EmployeeID)" style="cursor: pointer;"></i></td>
+  </tr>
+</table>

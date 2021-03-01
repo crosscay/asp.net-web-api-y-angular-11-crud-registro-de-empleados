@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
-import { Employee } from '../../models/employee.model'
+import { Employee } from '../../models/employee.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-employee',
@@ -12,6 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 export class EmployeeComponent implements OnInit {
   form: FormGroup;
   employee: Employee;
+  suscription: Subscription;
+  idEmployee?: number = 0;
 
   constructor(private service: EmployeeService, private _fb: FormBuilder, private toastr: ToastrService)
   {
@@ -22,11 +25,19 @@ export class EmployeeComponent implements OnInit {
       mobile: ['', [Validators.required]],
       position: ['', [Validators.required]]
     });
-    this.employee = new Employee(0, '', '', '', '');
   }
 
   ngOnInit() {
-    this.form.reset();
+    this.suscription = this.service.getEmployee$().subscribe(data => {
+      this.employee = data;
+      this.form.patchValue({
+        fullName: this.employee.FullName,
+        empCode: this.employee.EMPCode,
+        mobile: this.employee.Mobile,
+        position: this.employee.Position
+      });
+      this.idEmployee = this.employee.EmployeeID;
+    });
   }
 
   insertRecord() {
@@ -34,6 +45,14 @@ export class EmployeeComponent implements OnInit {
     this.employee.Position = this.form.get('position')?.value;
     this.employee.EMPCode = this.form.get('empCode')?.value;
     this.employee.Mobile = this.form.get('mobile')?.value;
+
+    const employee: Employee = {
+      EmployeeID: this.employee.EmployeeID,
+      FullName: this.form.get('fullName')?.value,
+      Position: this.form.get('position')?.value,
+      EMPCode: this.form.get('empCode')?.value,
+      Mobile: this.form.get('mobile')?.value,
+    }
 
     this.service.postEmployee(this.employee).subscribe((res: any) => {
       this.showSuccess();
@@ -43,13 +62,15 @@ export class EmployeeComponent implements OnInit {
   }
 
   updateRecord() {
-    this.employee.EmployeeID = this.form.get('employeeId')?.value;
-    this.employee.FullName = this.form.get('fullName')?.value;
-    this.employee.Position = this.form.get('position')?.value;
-    this.employee.EMPCode = this.form.get('empCode')?.value;
-    this.employee.Mobile = this.form.get('mobile')?.value;
+    const employee: Employee = {
+      EmployeeID: this.employee.EmployeeID,
+      FullName: this.form.get('fullName')?.value,
+      Position: this.form.get('position')?.value,
+      EMPCode: this.form.get('empCode')?.value,
+      Mobile: this.form.get('mobile')?.value,
+    }
 
-    this.service.putEmployee(this.employee).subscribe(res => {
+    this.service.putEmployee(employee).subscribe(res => {
       this.showInfo();
       this.form.reset();
       this.service.refreshList();
@@ -57,7 +78,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.form.value.employeeId == null) {
+    if (this.idEmployee === null || this.idEmployee === 0 || this.idEmployee === undefined) {
       this.insertRecord();
     }
     else {
@@ -71,5 +92,9 @@ export class EmployeeComponent implements OnInit {
 
   showInfo() {
     this.toastr.info('El empleado fue actualizado con exito!', 'Empleado Actualizado!');
+  }
+
+  ngOnDestroy() {
+    this.suscription.unsubscribe();
   }
 }

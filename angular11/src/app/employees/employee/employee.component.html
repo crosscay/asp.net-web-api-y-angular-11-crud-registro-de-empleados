@@ -3,8 +3,8 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle" [class.green-icon]="this.form.get('fullName').valid"
-                [class.red-icon]="this.form.get('fullName').invalid && this.form.get('fullName').touched"></i>
+          <i class="fas fa-user-circle" [class.green-icon]="this.form.get('fullName').valid"
+              [class.red-icon]="this.form.get('fullName').invalid && this.form.get('fullName').touched"></i>
         </div>
       </div>
       <input type="text" class="form-control" formControlName="fullName" placeholder="Nombre Completo">
@@ -16,8 +16,8 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle" [class.green-icon]="this.form.get('position').valid"
-                [class.red-icon]="this.form.get('position').invalid && this.form.get('position').touched"></i>
+          <i class="fas fa-briefcase" [class.green-icon]="this.form.get('position').valid"
+              [class.red-icon]="this.form.get('position').invalid && this.form.get('position').touched"></i>
         </div>
       </div>
       <input type="text" class="form-control" formControlName="position" placeholder="Cargo">
@@ -29,8 +29,8 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle" [class.green-icon]="this.form.get('empCode').valid"
-                [class.red-icon]="this.form.get('empCode').invalid && this.form.get('empCode').touched"></i>
+          <i class="fas fa-id-card-alt" [class.green-icon]="this.form.get('empCode').valid"
+              [class.red-icon]="this.form.get('empCode').invalid && this.form.get('empCode').touched"></i>
         </div>
       </div>
       <input type="text" class="form-control" formControlName="empCode" placeholder="Codigo empleado">
@@ -42,8 +42,8 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle" [class.green-icon]="this.form.get('mobile').valid"
-                [class.red-icon]="this.form.get('mobile').invalid && this.form.get('mobile').touched"></i>
+          <i class="fas fa-mobile-alt" [class.green-icon]="this.form.get('mobile').valid"
+              [class.red-icon]="this.form.get('mobile').invalid && this.form.get('mobile').touched"></i>
         </div>
       </div>
       <input type="text" class="form-control" formControlName="mobile" placeholder="Móvil">

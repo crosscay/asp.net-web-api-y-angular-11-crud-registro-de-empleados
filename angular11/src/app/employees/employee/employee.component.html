@@ -1,13 +1,13 @@
-<form  [formGroup]="form" (ngSubmit)="onSubmit(form)">
-  <input type="hidden" name="EmployeeID">
+<form  [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label>NOMBRE COMPLETO</label>
-    <input name="FullName" class="form-control" formControlName="fullName" required>
-    <!-- <div class="validation-error" *ngIf="FullName.invalid && FullName.touched">This field is required.</div> -->
+    <input name="fullName" class="form-control" formControlName="fullName" required>
+    <div class="validation-error"
+    *ngIf="form.get('fullName')?.hasError('required') && form.get('fullName')?.touched">Este campo es requerido.</div>
   </div>
   <div class="form-group">
     <label>POSICIÓN</label>
-    <input name="Position" formControlName="position" class="form-control">
+    <input name="position" formControlName="position" class="form-control">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">

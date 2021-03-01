@@ -15,22 +15,20 @@ export class EmployeeService {
     this.list = [];
   }
 
-  postEmployee(formData : Employee) {
-   return this.http.post(this.rootURL+'/Employee', formData);
-
+  postEmployee(employee : Employee) {
+    return this.http.post(`${this.rootURL}/Employee`, employee);
   }
 
   refreshList() {
-    this.http.get(this.rootURL+'/Employee')
+    this.http.get(`${this.rootURL}/Employee`)
     .toPromise().then(res => this.list = res as Employee[]);
   }
 
-  putEmployee(formData : Employee) {
-    return this.http.put(this.rootURL+'/Employee/'+formData.EmployeeID, formData);
+  putEmployee(employee : Employee) {
+    return this.http.put(`${this.rootURL}/Employee/${employee.EmployeeID}`, employee);
+  }
 
-   }
-
-   deleteEmployee(id : number) {
-    return this.http.delete(this.rootURL+'/Employee/'+id);
-   }
+  deleteEmployee(id : number) {
+    return this.http.delete(`${this.rootURL}/Employee/${id}`);
+  }
 }
